@@ -1,6 +1,88 @@
 .main-nav {
+  position: relative;
+
   width: 320px;
+  min-height: 50px;
   margin: 0 auto;
+
+  background-color: #826550;
+}
+
+.main-nav__toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  display: block;
+  width: 70px;
+  height: 50px;
+
+  font-size: 0;
+  background-color: #6a4d38;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: #624530;
+  }
+
+  &:active {
+    background-color: #624530;
+  }
+}
+
+.main-nav--closed .main-nav__toggle::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 17px;
+
+  width: 36px;
+  height: 2px;
+
+  background-color: #ffffff;
+  box-shadow: 0 8px 0 0 #ffffff,
+              0 16px 0 0 #ffffff;
+}
+
+.main-nav--closed .main-nav__toggle:active::before {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 0 0 rgba(255, 255, 255, 0.3),
+              0 16px 0 0 rgba(255, 255, 255, 0.3);
+}
+
+.main-nav--opened .main-nav__toggle {
+  top: 0;
+  right: auto;
+  left: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 18px;
+
+    width: 36px;
+    height: 2px;
+
+    background-color: #ffffff;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+    box-shadow: none;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:active::before,
+  &:active::after {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
 }
 
 .main-nav__items,
@@ -13,6 +95,37 @@
 
 .main-nav__items {
   min-height: 255px;
+  font-weight: bold;
+}
+
+.main-nav__item a {
+  display: block;
+  padding: 12px 21px;
+  padding-bottom: 13px;
+
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  background-color: #826550;
+  border-top: 1px solid #886e5b;
+  border-bottom: 1px solid #71543f;
+}
+
+.main-nav__item a[href] {
+  &:hover {
+    background-color: #755a46;
+    border-top-color: #755a46;
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.3);
+
+    background-color: #6a4d38;
+    border-top-color: #6a4d38;
+  }
 }
 
 .main-nav__user-items {
