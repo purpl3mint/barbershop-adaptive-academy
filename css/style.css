@@ -263,7 +263,7 @@ img {
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .main-nav__user-items {
     width: 60px;
