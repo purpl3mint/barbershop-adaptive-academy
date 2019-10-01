@@ -1,9 +1,8 @@
 .main-nav {
   position: relative;
 
-  width: 320px;
+  width: auto;
   min-height: 50px;
-  margin: 0 auto;
 
   background-color: #826550;
 }
@@ -231,15 +230,17 @@
 @media @tablet-widths {
   .main-nav {
     width: auto;
-//    min-height: 70px;
     margin: 0;
 
     background-color: #000000;
   }
 
   .main-nav__wrapper {
-    .container();
-    .clearfix();
+    .container-fluid();
+    //.clearfix();
+
+    display: flex;
+    justify-content: space-between;
   }
 
   .main-nav__toggle {
@@ -247,13 +248,17 @@
   }
 
   .main-nav__items {
-    float: left;
-    width: 570px;
+//    float: left;
+//    width: 570px;
 //    min-height: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-between;
   }
 
   .main-nav__user-items {
-    float: right;
+    //float: right;
     width: 60px;
 //    min-height: 70px;
   }
