@@ -599,6 +599,7 @@ img {
 .advanatges__wrapper {
   width: 320px;
   margin: 0 auto;
+  position: relative;
   min-height: 320px;
   padding-top: 30px;
 }
@@ -613,17 +614,20 @@ img {
   }
 }
 .advantages__items {
+  position: relative;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .advantages__item {
-  position: relative;
+  position: absolute;
   min-height: 145px;
   margin-bottom: 23px;
   padding: 0 44px;
   padding-top: 125px;
   text-align: center;
+  opacity: 0;
+  z-index: 0;
 }
 .advantages__item::before {
   content: "";
@@ -632,9 +636,6 @@ img {
   top: 0;
   left: 50%;
   margin-left: -47px;
-}
-.advantages__item:nth-child(n+2) {
-  display: none;
 }
 .advantages__item--fast::before {
   height: 94px;
@@ -648,6 +649,41 @@ img {
   height: 94px;
   background: url("../img/advantage-pricy.png") no-repeat;
 }
+.slider__input {
+  display: none;
+}
+.slider__toggles {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  margin-left: -42px;
+  z-index: 2;
+  text-align: center;
+}
+.slider__toggle {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 25px;
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+.slider__toggle:last-child {
+  margin-right: 0;
+}
+#advantages-input-1:checked ~ .slider__toggles .slider__toggle:nth-of-type(1),
+#advantages-input-2:checked ~ .slider__toggles .slider__toggle:nth-of-type(2),
+#advantages-input-3:checked ~ .slider__toggles .slider__toggle:nth-of-type(3) {
+  background-color: #ffffff;
+}
+#advantages-input-1:checked ~ .advantages__items .advantages__item--fast,
+#advantages-input-2:checked ~ .advantages__items .advantages__item--cool,
+#advantages-input-3:checked ~ .advantages__items .advantages__item--pricy {
+  opacity: 1;
+  z-index: 1;
+}
 @media (min-width: 768px) {
   .advanatges__wrapper {
     padding-top: 42px;
@@ -656,6 +692,8 @@ img {
     padding-bottom: 4px;
   }
   .advantages__item {
+    position: relative;
+    display: inline-block;
     min-height: 95px;
     margin: 0;
     margin-bottom: 40px;
@@ -663,6 +701,7 @@ img {
     padding-bottom: 39px;
     padding-left: 128px;
     text-align: left;
+    opacity: 1;
   }
   .advantages__item::before {
     left: 50px;
@@ -673,7 +712,7 @@ img {
   .advantages__item:last-child {
     margin-bottom: 0;
   }
-  .slider__input {
+  .slider__toggles {
     display: none;
   }
 }
